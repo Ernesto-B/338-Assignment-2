@@ -23,8 +23,11 @@ def func(n):
         return func(n-1) + func(n-2)   
 
 fibMemoLoop35 = timeit.timeit(lambda: fib_memo(35), number=35)
+print([fib_memo(i) for i in range(35)])
 
+print([func(i) for i in range(35)])
 fibLoop35 = timeit.timeit(lambda: func(35), number=35)
+
 
 print(f"It took {fibMemoLoop35} seconds for the program to calculate the first 35 numbers in the Fibonacci Sequence with memoization")
 
