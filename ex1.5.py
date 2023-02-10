@@ -3,7 +3,7 @@ Creators: Ernesto Barreto, Reese Sanchez
 Date: 
 338 Assignment 2
 """
-import timeit
+import time
 
 def fib_memo(n, memo={}):
     if n <= 0:
@@ -22,13 +22,21 @@ def func(n):
     else:
         return func(n-1) + func(n-2)   
 
-fibMemoLoop35 = timeit.timeit(lambda: fib_memo(35), number=35)
+# starting timer
+start_time1 = time.perf_counter()
+# running program with memoization
 print([fib_memo(i) for i in range(35)])
+# stopping timer
+end_time1 = time.perf_counter()
 
+# starting timer
+start_time2 = time.perf_counter()
+# running program with memoization
 print([func(i) for i in range(35)])
-fibLoop35 = timeit.timeit(lambda: func(35), number=35)
+# stopping timer
+end_time2 = time.perf_counter()
 
 
-print(f"It took {fibMemoLoop35} seconds for the program to calculate the first 35 numbers in the Fibonacci Sequence with memoization")
+print(f"It took", end_time1 - start_time1 ," seconds for the program to calculate the first 35 numbers in the Fibonacci Sequence with memoization")
 
-print(f"It took {fibLoop35} seconds for the program to calculate the first 35 numbers in the Fibonacci Sequence without memoization")
+print(f"It took", end_time2 - start_time2," seconds for the program to calculate the first 35 numbers in the Fibonacci Sequence without memoization")
