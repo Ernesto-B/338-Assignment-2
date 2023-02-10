@@ -16,4 +16,16 @@ def fib_memo(n, memo={}):
         memo[n] = fib_memo(n-1, memo) + fib_memo(n-2, memo)
         return memo[n]
 
-fibLoop35 = timeit.timeit(lambda: fib_memo(n,))
+def func(n):
+    if n == 0 or n == 1:
+        return n
+    else:
+        return func(n-1) + func(n-2)   
+
+fibMemoLoop35 = timeit.timeit(lambda: fib_memo(35), number=35)
+
+fibLoop35 = timeit.timeit(lambda: func(35), number=35)
+
+print(f"It took {fibMemoLoop35} seconds for the program to calculate the first 35 numbers in the Fibonacci Sequence with memoization")
+
+print(f"It took {fibLoop35} seconds for the program to calculate the first 35 numbers in the Fibonacci Sequence without memoization")
