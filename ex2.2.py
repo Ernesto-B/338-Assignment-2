@@ -35,9 +35,9 @@ def func2(array, start, end):
 with open('ex2.json', 'r') as f:
     data = json.load(f)
 
-start_timer = time.time()
+start_timer = time.perf_counter()
 func1(data, 0, len(data) - 1)
-end_timer = time.time()
+end_timer = time.perf_counter()
 
 #print("The sorted array is: ", data)
 print("Time taken: ", format((end_timer - start_timer) * 1000, '.40f'), "seconds") # Not sure if this is the correct way to calculate time
