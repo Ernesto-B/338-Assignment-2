@@ -41,9 +41,11 @@ end_time2 = time.perf_counter()
 print(f"It took", end_time1 - start_time1 ," seconds for the program to calculate the first 35 numbers in the Fibonacci Sequence with memoization")
 print(f"It took", end_time2 - start_time2," seconds for the program to calculate the first 35 numbers in the Fibonacci Sequence without memoization")
 
+# saving the time it takes for the functions to run
 memoTime = end_time1 - start_time1
 funcTime = end_time2 - start_time2
 
+# plotting the saved times on to a graph
 plt.plot(["With Memoization", "Without Memoization"], [memoTime, funcTime], 'ro')
 plt.xlabel('Method')
 plt.ylabel('Time Taken (s)')
