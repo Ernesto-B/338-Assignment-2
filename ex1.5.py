@@ -4,6 +4,7 @@ Date:
 338 Assignment 2
 """
 import time
+import matplotlib.pyplot as plt
 
 def fib_memo(n, memo={}):
     if n <= 0:
@@ -36,7 +37,15 @@ print([func(i) for i in range(35)])
 # stopping timer
 end_time2 = time.perf_counter()
 
-
+# printing the time it took to make the 
 print(f"It took", end_time1 - start_time1 ," seconds for the program to calculate the first 35 numbers in the Fibonacci Sequence with memoization")
-
 print(f"It took", end_time2 - start_time2," seconds for the program to calculate the first 35 numbers in the Fibonacci Sequence without memoization")
+
+memoTime = end_time1 - start_time1
+funcTime = end_time2 - start_time2
+
+plt.plot(["With Memoization", "Without Memoization"], [memoTime, funcTime], 'ro')
+plt.xlabel('Method')
+plt.ylabel('Time Taken (s)')
+plt.title('Sorting Time')
+plt.show()
