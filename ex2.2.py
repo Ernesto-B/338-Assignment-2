@@ -7,9 +7,11 @@ Date:
 import sys
 import json
 import time
+import numpy as np
 import matplotlib.pyplot as plt
 
-times = []
+sortTime = []
+xLabels = ["Array 1", "Array 2", "Array 3", "Array 4", "Array 5", "Array 6", "Array 7", "Array 8", "Array 9", "Array 10", "Array 11", "Array 12", "Array 13"]
 
 sys.setrecursionlimit(20000)
 def func1(arr, low, high):
@@ -19,7 +21,7 @@ def func1(arr, low, high):
         func1(arr, low, pi-1)
         func1(arr, pi + 1, high)
     end_timer1 = time.perf_counter()
-    times.append(end_timer1-start_timer1)
+    sortTime.append(end_timer1-start_timer1)
 
 def func2(array, start, end):
     p = array[start]
@@ -47,9 +49,8 @@ end_timer = time.perf_counter()
 #print("The sorted array is: ", data)
 print("Time taken: ", format((end_timer - start_timer) * 1000, '.40f'), "seconds") # Not sure if this is the correct way to calculate time
 
-#Bruh idk how to plot this
 time_taken = (end_timer - start_timer) * 10 ** 12
-plt.plot([times], [times], 'ro')
+plt.bar(xLabels, sortTime)
 plt.xlabel('Iteration')
 plt.ylabel('Time Taken (ps)')
 plt.title('Sorting Time')
