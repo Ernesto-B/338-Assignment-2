@@ -7,7 +7,6 @@ Date:
 import sys
 import json
 import time
-import numpy as np
 import matplotlib.pyplot as plt
 
 sortTime = []
@@ -46,8 +45,10 @@ start_timer = time.perf_counter()
 func1(data, 0, len(data) - 1)
 end_timer = time.perf_counter()
 
+"""
 with open("ex2.5.json", "w") as outfile:
     json.dump(data, outfile)
+"""
 
 #print("The sorted array is: ", data)
 print("Time taken: ", format((end_timer - start_timer) * 1000, '.40f'), "seconds") # Not sure if this is the correct way to calculate time
